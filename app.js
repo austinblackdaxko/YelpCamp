@@ -19,6 +19,7 @@ const User = require("./models/user");
 const helmet = require('helmet');
 const MongoStore = require('connect-mongo')(session);
 const dbUrl = process.env.DB_URL
+const secret = process.env.SECRET
 
 // mongodb://localhost:27017/yelp-camp - local db
 
@@ -59,7 +60,7 @@ store.on("error", function(e) {
 const sessionConfig = {
   store,
   name: 'blah',
-  secret: "thisshouldbeabettersecret!",
+  secret: secret,
   resave: false,
   saveUninitialized: true,
   cookie: {
