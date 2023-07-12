@@ -1,0 +1,13 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <div class="col-6 offset-3">
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= err.statusCode %> <%= err.message %></h4>
+      <p>I think you stumbled a bit too far into the woods partner, use the navbar to navigate back to safety</p>
+      <hr>
+      <% if(process.env.NODE_ENV !== "production") { %>
+        <p class="mb-0"><%= err.stack %></p>
+      <% } %>
+    </div>
+  </div>
+</div>
